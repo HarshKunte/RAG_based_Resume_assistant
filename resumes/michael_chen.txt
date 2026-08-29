@@ -1,0 +1,58 @@
+MICHAEL CHEN
+Data Scientist
+
+Email: michael.chen@example.com
+Location: Singapore
+
+SUMMARY
+Data scientist with 5 years of experience in machine learning,
+statistical analysis, predictive modeling, and data visualization.
+Experienced in Python, SQL, pandas, scikit-learn, TensorFlow,
+and large-scale data processing.
+
+EXPERIENCE
+
+Data Scientist
+DataSphere Analytics
+2021 - Present
+
+- Developed machine learning models for customer churn prediction.
+- Built classification and regression models using scikit-learn.
+- Performed exploratory data analysis using pandas and NumPy.
+- Created dashboards and visualizations using Tableau.
+- Used SQL to analyze millions of customer records.
+- Improved model accuracy through feature engineering.
+- Collaborated with product teams to define business metrics.
+
+Machine Learning Engineer
+AI Labs
+2019 - 2021
+
+- Developed recommendation models using Python.
+- Trained deep learning models using TensorFlow.
+- Created data preprocessing pipelines.
+- Evaluated models using precision, recall, F1 score, and ROC-AUC.
+- Experimented with different machine learning algorithms.
+
+SKILLS
+
+Programming:
+Python, SQL, R
+
+Machine Learning:
+Scikit-learn, TensorFlow, Keras
+
+Data:
+Pandas, NumPy, Apache Spark
+
+Visualization:
+Tableau, Matplotlib, Seaborn
+
+Other:
+Statistics, Feature Engineering, A/B Testing
+
+EDUCATION
+
+M.S. in Data Science
+National University
+2019

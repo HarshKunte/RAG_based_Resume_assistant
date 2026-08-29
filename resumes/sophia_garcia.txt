@@ -1,0 +1,25 @@
+SOPHIA GARCIA
+sophia.garcia@example.com | LinkedIn | GitHub
+
+SUMMARY
+iOS Developer with 6 years of experience delivering consumer mobile applications.
+
+PROFESSIONAL EXPERIENCE
+Orbit Mobile - Senior iOS Engineer - 2021 to Present
+Developed Swift and SwiftUI applications used by more than one million customers.
+Implemented offline synchronization, push notifications, and secure authentication.
+Improved app startup performance by 30 percent through profiling and concurrency improvements.
+
+AppFoundry - iOS Developer - 2018 to 2021
+Built UIKit screens and integrated REST APIs for retail and travel applications.
+Created unit and UI tests with XCTest and maintained release workflows.
+
+SKILLS
+Swift, SwiftUI, UIKit, iOS, REST APIs, XCTest, Core Data, Combine, Git, Mobile Development, App Performance
+
+PROJECTS
+Travel Companion App
+Created offline maps, itinerary planning, and secure account features for iOS.
+
+EDUCATION
+B.S. Computer Science, University of California Irvine, 2014 to 2018

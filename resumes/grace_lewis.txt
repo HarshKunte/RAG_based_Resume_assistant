@@ -1,0 +1,25 @@
+GRACE LEWIS
+grace.lewis@example.com | LinkedIn | Portfolio
+
+SUMMARY
+Technical Writer with 6 years of experience creating documentation for developer tools and APIs.
+
+PROFESSIONAL EXPERIENCE
+Developer Platform Co - Senior Technical Writer - 2021 to Present
+Created API references, tutorials, release notes, and software development guides.
+Worked with engineers to document REST APIs, SDKs, authentication, and deployment workflows.
+Built documentation sites using Markdown, Git, and static site generators.
+
+CloudDocs - Technical Writer - 2018 to 2021
+Interviewed engineers and transformed complex features into clear user documentation.
+Managed documentation reviews and maintained content standards.
+
+SKILLS
+Technical Writing, API Documentation, REST APIs, Markdown, Git, GitHub, OpenAPI, Docs as Code, Information Architecture, Editing
+
+PROJECTS
+Developer Documentation Portal
+Created a searchable documentation site with versioned API references and tutorials.
+
+EDUCATION
+B.A. English and Professional Writing, University of Maryland, 2014 to 2018

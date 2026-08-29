@@ -1,0 +1,25 @@
+JACK ROBINSON
+jack.robinson@example.com | LinkedIn | GitHub
+
+SUMMARY
+Android Engineer with 4 years of experience developing reliable Kotlin mobile applications.
+
+PROFESSIONAL EXPERIENCE
+MobileWorks - Android Engineer - 2022 to Present
+Built Android applications using Kotlin, Jetpack Compose, and MVVM architecture.
+Integrated REST APIs and local persistence with Room database.
+Improved crash-free sessions through automated testing and Firebase monitoring.
+
+DigitalTrail - Associate Android Developer - 2020 to 2022
+Developed user interfaces with Android Views and maintained legacy Java modules.
+Collaborated with designers and backend engineers during two-week sprints.
+
+SKILLS
+Kotlin, Java, Android, Jetpack Compose, MVVM, Room, Firebase, REST APIs, Gradle, Espresso, Git
+
+PROJECTS
+Fitness Tracking Application
+Built workout tracking and progress visualization features with local-first storage.
+
+EDUCATION
+B.S. Computer Science, University of Illinois, 2016 to 2020

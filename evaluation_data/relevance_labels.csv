@@ -1,0 +1,16 @@
+job_id,candidate_id,relevance
+jd_001,harsh_resume,3
+jd_001,john_doe,2
+jd_001,emily_johnson,1
+jd_002,harsh_resume,2
+jd_002,john_doe,3
+jd_002,michael_chen,2
+jd_003,harsh_resume,3
+jd_003,john_doe,2
+jd_003,michael_chen,2
+jd_004,harsh_resume,3
+jd_004,jane_smith_resume,2
+jd_004,john_doe,2
+jd_005,harsh_resume,3
+jd_005,emily_johnson,1
+jd_005,jane_smith_resume,1

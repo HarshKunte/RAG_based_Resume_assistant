@@ -1,0 +1,25 @@
+LIAM WILSON
+liam.wilson@example.com | LinkedIn | GitHub
+
+SUMMARY
+Data Engineer with 5 years of experience developing analytics platforms and data pipelines.
+
+PROFESSIONAL EXPERIENCE
+InsightWorks - Data Engineer - 2021 to Present
+Built batch and streaming pipelines using Python, Apache Spark, and Apache Airflow.
+Modeled warehouse data in Snowflake and BigQuery for product analytics teams.
+Improved pipeline reliability with data quality checks, monitoring, and alerting.
+
+Northstar Analytics - Junior Data Engineer - 2019 to 2021
+Created SQL transformations and dashboards for business stakeholders.
+Maintained ETL jobs and documented source data contracts.
+
+SKILLS
+Python, SQL, Apache Spark, Apache Airflow, Snowflake, BigQuery, Kafka, dbt, Tableau, Docker, Git
+
+PROJECTS
+Customer Events Lakehouse
+Implemented a partitioned data lakehouse with Spark and dbt transformations.
+
+EDUCATION
+B.S. Information Systems, University of Texas, 2015 to 2019

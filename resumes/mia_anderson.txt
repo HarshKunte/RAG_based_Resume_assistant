@@ -1,0 +1,25 @@
+MIA ANDERSON
+mia.anderson@example.com | LinkedIn | GitHub
+
+SUMMARY
+Product Designer and UX Engineer with 5 years of experience creating accessible digital products.
+
+PROFESSIONAL EXPERIENCE
+Civic Digital - UX Engineer - 2021 to Present
+Designed and implemented accessible interfaces using HTML, CSS, JavaScript, and React.
+Created design systems and reusable components in collaboration with product teams.
+Conducted usability studies and improved task completion rates by 28 percent.
+
+Bright Studio - Product Designer - 2019 to 2021
+Created prototypes and user flows in Figma for mobile and web products.
+Translated research findings into interaction designs and product requirements.
+
+SKILLS
+UX Design, Product Design, Figma, Design Systems, Accessibility, HTML, CSS, JavaScript, React, User Research, Prototyping
+
+PROJECTS
+Accessible Public Services Portal
+Led research and design for a multilingual public benefits application.
+
+EDUCATION
+B.F.A. Interaction Design, California College of the Arts, 2015 to 2019

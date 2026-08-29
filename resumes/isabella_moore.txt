@@ -1,0 +1,25 @@
+ISABELLA MOORE
+isabella.moore@example.com | LinkedIn | GitHub
+
+SUMMARY
+QA Automation Engineer with 5 years of experience improving quality for web and API platforms.
+
+PROFESSIONAL EXPERIENCE
+QualityFirst - QA Automation Engineer - 2021 to Present
+Designed end-to-end test suites using Selenium, Cypress, and Playwright.
+Built API validation workflows with Python and Postman.
+Integrated test execution into Jenkins CI pipelines and reduced regression time by 45 percent.
+
+WebCore - QA Analyst - 2019 to 2021
+Created manual and automated tests for responsive web applications.
+Reported defects, analyzed root causes, and partnered with developers on fixes.
+
+SKILLS
+QA Automation, Selenium, Cypress, Playwright, Python, JavaScript, Postman, REST APIs, Jenkins, CI/CD, Test Strategy
+
+PROJECTS
+Regression Test Platform
+Created a parallel browser testing framework with reporting and failure screenshots.
+
+EDUCATION
+B.S. Information Technology, Florida State University, 2015 to 2019

@@ -1,0 +1,25 @@
+ETHAN THOMPSON
+ethan.thompson@example.com | LinkedIn | GitHub
+
+SUMMARY
+Full Stack Developer with 3 years of experience building SaaS applications for small businesses.
+
+PROFESSIONAL EXPERIENCE
+LaunchPad Software - Full Stack Developer - 2023 to Present
+Built customer portals with React, TypeScript, Node.js, and Express.
+Designed GraphQL APIs and integrated PostgreSQL with Prisma ORM.
+Created automated browser tests using Playwright and deployed services to Azure.
+
+CodeBridge - Software Developer - 2021 to 2023
+Implemented responsive interfaces and REST endpoints for workflow products.
+Fixed production defects and participated in Agile sprint planning.
+
+SKILLS
+React, TypeScript, JavaScript, Node.js, Express, GraphQL, PostgreSQL, Prisma, Azure, Playwright, REST APIs
+
+PROJECTS
+Invoice Automation Dashboard
+Built a full stack dashboard for invoice approval and audit tracking.
+
+EDUCATION
+B.S. Software Engineering, Northeastern University, 2017 to 2021

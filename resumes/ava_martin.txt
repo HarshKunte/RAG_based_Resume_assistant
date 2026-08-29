@@ -1,0 +1,25 @@
+AVA MARTIN
+ava.martin@example.com | LinkedIn | GitHub
+
+SUMMARY
+Cloud Engineer with 7 years of experience automating infrastructure and improving platform reliability.
+
+PROFESSIONAL EXPERIENCE
+Nimbus Cloud - Cloud Platform Engineer - 2020 to Present
+Built AWS infrastructure using Terraform, Kubernetes, and Helm.
+Created observability solutions with Prometheus, Grafana, and OpenTelemetry.
+Reduced deployment time by 40 percent through reusable CI/CD workflows.
+
+BlueGrid Systems - DevOps Engineer - 2017 to 2020
+Maintained Linux environments and Docker-based application platforms.
+Automated releases with Jenkins and GitHub Actions.
+Implemented incident response procedures and infrastructure security controls.
+
+SKILLS
+AWS, Azure, Kubernetes, Docker, Terraform, Helm, Linux, Jenkins, GitHub Actions, Prometheus, Grafana, Python
+
+CERTIFICATIONS
+AWS Certified Solutions Architect - Associate
+
+EDUCATION
+B.S. Computer Engineering, Georgia Tech, 2013 to 2017

@@ -1,0 +1,57 @@
+SARAH WILLIAMS
+Frontend Developer
+
+Email: sarah.williams@example.com
+Location: Mumbai, India
+
+SUMMARY
+Frontend developer with 4 years of experience building responsive,
+accessible, and high-performance web applications. Specialized in
+React, TypeScript, JavaScript, Next.js, and modern frontend tooling.
+
+EXPERIENCE
+
+Frontend Engineer
+PixelWorks
+2022 - Present
+
+- Built customer-facing applications using React and TypeScript.
+- Developed reusable UI component libraries.
+- Improved page load performance using code splitting and lazy loading.
+- Integrated REST APIs into React applications.
+- Implemented responsive designs based on Figma specifications.
+- Worked closely with designers and backend engineers.
+- Used Jest and React Testing Library for frontend testing.
+
+Junior Frontend Developer
+WebCraft Labs
+2020 - 2022
+
+- Developed web applications using JavaScript and React.
+- Created responsive layouts using HTML and CSS.
+- Fixed cross-browser compatibility issues.
+- Integrated third-party APIs.
+- Participated in code reviews and sprint planning.
+
+SKILLS
+
+Languages:
+JavaScript, TypeScript, HTML, CSS
+
+Frameworks:
+React, Next.js
+
+Tools:
+Git, GitHub, Vite, Webpack, Figma
+
+Testing:
+Jest, React Testing Library
+
+Other:
+REST APIs, Responsive Design, Accessibility
+
+EDUCATION
+
+B.Sc. Computer Science
+University of Mumbai
+2020

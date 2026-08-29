@@ -1,0 +1,54 @@
+JOHN DOE
+Senior Backend Engineer
+
+Email: john.doe@example.com
+Phone: +91-90000-10001
+Location: Bangalore, India
+
+SUMMARY
+Backend engineer with 6 years of experience designing scalable APIs,
+distributed systems, and cloud-based applications. Strong experience
+with Java, Spring Boot, PostgreSQL, Redis, Docker, and AWS.
+
+EXPERIENCE
+
+Senior Software Engineer
+TechNova Solutions
+2022 - Present
+
+- Designed and developed REST APIs using Java and Spring Boot.
+- Improved API response time by approximately 35% through Redis caching.
+- Designed PostgreSQL schemas for high-volume transactional systems.
+- Built asynchronous services using Kafka.
+- Containerized applications using Docker.
+- Deployed services on AWS using EC2, S3, RDS, and CloudWatch.
+- Worked with a team of 8 engineers following Agile methodology.
+
+Software Engineer
+CodeStack Technologies
+2020 - 2022
+
+- Developed backend services using Java and Spring Boot.
+- Created unit and integration tests using JUnit and Mockito.
+- Optimized SQL queries and database indexes.
+- Maintained CI/CD pipelines using Jenkins.
+
+SKILLS
+
+Programming:
+Java, SQL, Python
+
+Backend:
+Spring Boot, Spring MVC, REST APIs, Hibernate
+
+Databases:
+PostgreSQL, MySQL, Redis
+
+Cloud & DevOps:
+AWS, Docker, Jenkins, Kafka
+
+EDUCATION
+
+B.Tech in Computer Science
+ABC Institute of Technology
+2020

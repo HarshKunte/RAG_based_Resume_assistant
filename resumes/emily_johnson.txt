@@ -1,0 +1,55 @@
+EMILY JOHNSON
+Product Manager
+
+Email: emily.johnson@example.com
+Location: Delhi, India
+
+SUMMARY
+Product manager with 7 years of experience managing SaaS products,
+defining product strategy, conducting customer research, and
+working with engineering and design teams.
+
+EXPERIENCE
+
+Senior Product Manager
+CloudFlow
+2021 - Present
+
+- Owned product strategy for a B2B SaaS platform.
+- Managed product roadmap and quarterly planning.
+- Conducted customer interviews and usability studies.
+- Defined product requirements and user stories.
+- Worked with engineering teams to prioritize features.
+- Used analytics to identify product adoption opportunities.
+- Coordinated releases across engineering, design, sales, and marketing.
+
+Product Manager
+StartupHub
+2019 - 2021
+
+- Managed mobile and web product features.
+- Created product specifications and acceptance criteria.
+- Worked with UX designers to improve user flows.
+- Conducted competitor analysis.
+- Tracked product KPIs and customer retention.
+
+SKILLS
+
+Product:
+Product Strategy, Roadmapping, User Research, Product Analytics
+
+Tools:
+Jira, Confluence, Figma, Mixpanel, Amplitude
+
+Methodologies:
+Agile, Scrum, Design Thinking
+
+EDUCATION
+
+MBA
+XYZ Business School
+2019
+
+B.Tech Computer Science
+ABC University
+2017

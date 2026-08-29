@@ -1,0 +1,25 @@
+LILY GREEN
+lily.green@example.com | LinkedIn | Portfolio
+
+SUMMARY
+Product Manager with 6 years of experience leading software products from discovery through launch.
+
+PROFESSIONAL EXPERIENCE
+HealthTech Products - Senior Product Manager - 2020 to Present
+Owned roadmap and delivery for patient scheduling and analytics products.
+Used customer research, product metrics, and experimentation to prioritize features.
+Collaborated with engineering teams building React web applications and REST APIs.
+
+MarketHub - Product Manager - 2018 to 2020
+Defined requirements, wrote user stories, and coordinated Agile release planning.
+Partnered with design and engineering to improve conversion by 22 percent.
+
+SKILLS
+Product Management, Product Strategy, Roadmapping, Agile, Scrum, User Research, A/B Testing, Product Analytics, React, REST APIs, Jira
+
+PROJECTS
+Patient Scheduling Platform
+Led discovery, prioritization, launch planning, and post-launch measurement for a scheduling workflow.
+
+EDUCATION
+MBA, University of Virginia, 2016 to 2018

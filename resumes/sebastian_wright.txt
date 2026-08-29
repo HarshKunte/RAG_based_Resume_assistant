@@ -1,0 +1,25 @@
+SEBASTIAN WRIGHT
+sebastian.wright@example.com | LinkedIn | GitHub
+
+SUMMARY
+NLP Engineer with 3 years of experience building language processing and search applications.
+
+PROFESSIONAL EXPERIENCE
+LanguageAI - NLP Engineer - 2023 to Present
+Developed document classification and semantic search systems with Python and Hugging Face Transformers.
+Built retrieval augmented generation pipelines using embeddings and vector databases.
+Evaluated language models with precision, recall, and human relevance judgments.
+
+ResearchWorks - Machine Learning Intern - 2022 to 2023
+Prepared text datasets and trained named entity recognition models.
+Created evaluation notebooks with pandas and scikit-learn.
+
+SKILLS
+Python, NLP, Natural Language Processing, Hugging Face, Transformers, Embeddings, Vector Databases, RAG, Machine Learning, SQL
+
+PROJECTS
+Resume Search Assistant
+Built a semantic retrieval prototype with chunking, embeddings, and relevance evaluation.
+
+EDUCATION
+M.S. Artificial Intelligence, University of Southern California, 2020 to 2022

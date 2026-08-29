@@ -1,0 +1,25 @@
+NOAH TAYLOR
+noah.taylor@example.com | LinkedIn | GitHub
+
+SUMMARY
+Machine Learning Engineer with 4 years of experience delivering production recommendation and forecasting systems.
+
+PROFESSIONAL EXPERIENCE
+Predictive Labs - Machine Learning Engineer - 2022 to Present
+Trained classification and recommendation models using Python, PyTorch, and scikit-learn.
+Built feature pipelines with pandas and Spark and deployed models through FastAPI services.
+Tracked experiments and model versions with MLflow.
+
+MarketSense - Data Scientist - 2020 to 2022
+Developed demand forecasting models and evaluated model performance with cross-validation.
+Communicated analytical findings to product and marketing teams.
+
+SKILLS
+Python, PyTorch, TensorFlow, scikit-learn, pandas, NumPy, Spark, MLflow, FastAPI, SQL, Machine Learning
+
+PROJECTS
+Personalized Recommendation Engine
+Built an offline evaluation pipeline for ranking and recommendation experiments.
+
+EDUCATION
+M.S. Data Science, University of Michigan, 2018 to 2020

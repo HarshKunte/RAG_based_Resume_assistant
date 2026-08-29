@@ -1,0 +1,7 @@
+[
+  {"job_id": "jd_001", "title": "Frontend Engineer", "description": "Required candidate should have 4+ years of professional experience in React, JavaScript, TypeScript, and Redux."},
+  {"job_id": "jd_002", "title": "Backend Engineer", "description": "Backend engineer with experience in Node.js, Express, JavaScript, REST APIs, and MongoDB."},
+  {"job_id": "jd_003", "title": "Full Stack Engineer", "description": "Full stack developer with React, Node.js, Express, SQL, and Git experience."},
+  {"job_id": "jd_004", "title": "Software Engineer", "description": "Software engineer with at least 3 years of experience building scalable web applications and working with JavaScript and React."},
+  {"job_id": "jd_005", "title": "Web Performance Engineer", "description": "Frontend specialist with React, TypeScript, performance optimization, caching, code splitting, and CI/CD experience."}
+]

@@ -1,0 +1,25 @@
+CHLOE WHITE
+chloe.white@example.com | LinkedIn | GitHub
+
+SUMMARY
+Java Software Engineer with 8 years of experience building enterprise transaction systems.
+
+PROFESSIONAL EXPERIENCE
+FinServe - Senior Java Engineer - 2019 to Present
+Built Spring Boot microservices for banking and payment workflows.
+Designed Kafka event streams and Oracle database procedures for high-volume transactions.
+Improved service reliability with Kubernetes, Docker, and distributed tracing.
+
+Enterprise Logic - Java Developer - 2016 to 2019
+Developed Java applications with Spring MVC, Hibernate, and REST APIs.
+Created unit tests with JUnit and supported production releases.
+
+SKILLS
+Java, Spring Boot, Spring MVC, Microservices, Kafka, Oracle, PostgreSQL, Docker, Kubernetes, REST APIs, JUnit
+
+PROJECTS
+Real-Time Payment Platform
+Designed idempotent transaction services with audit logging and event replay.
+
+EDUCATION
+M.S. Computer Science, Boston University, 2014 to 2016

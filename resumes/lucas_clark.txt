@@ -1,0 +1,24 @@
+LUCAS CLARK
+lucas.clark@example.com | LinkedIn | GitHub
+
+SUMMARY
+Network Engineer with 9 years of experience designing secure and resilient corporate networks.
+
+PROFESSIONAL EXPERIENCE
+ConnectPro - Network Engineer - 2018 to Present
+Designed LAN, WAN, VPN, and wireless networks for global offices.
+Configured Cisco routers, switches, firewalls, and load balancers.
+Automated network checks using Python and Ansible and improved incident response.
+
+NetWorks Inc - Network Administrator - 2015 to 2018
+Monitored network performance and managed DNS, DHCP, and routing services.
+Documented network architecture and supported disaster recovery exercises.
+
+SKILLS
+Networking, Cisco, TCP/IP, VPN, Firewalls, DNS, DHCP, BGP, Python, Ansible, Linux, Network Security
+
+CERTIFICATIONS
+Cisco Certified Network Professional
+
+EDUCATION
+B.S. Network Engineering, Arizona State University, 2011 to 2015

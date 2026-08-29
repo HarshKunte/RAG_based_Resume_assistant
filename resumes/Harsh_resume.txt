@@ -1,0 +1,70 @@
+HARSH KUNTE 
+harshkunte23@gmail.com | Linkedin | Github | Portfolio 
+Software Engineer with 4+ years experience building high-performance, scalable, responsive web applications 
+for enterprise clients. Proven success achieving 20–30% performance improvements, reducing technical debt, 
+and delivering pixel-perfect UI/UX. 
+PROFESSIONAL EXPERIENCE 
+Accenture 
+Senior Analyst - Frontend Engineer 
+APR 2024 – Present 
+Led development of enterprise-grade document and currency management platforms using React.js, 
+TypeScript, Redux, and REST APIs. 
+Improved page load and rendering speed by 20% through lazy loading, dynamic imports, code-splitting, 
+and memoization. 
+Reduced bundle size and API latency by optimizing state management with Redux, custom caching 
+layers, and reusable hooks. 
+Maintained code standards, and component best practices; reviewed PRs and mentored junior 
+developers. 
+Collaborated with cross-functional teams (UX, Product, Backend) following Agile methodology and 
+CI/CD workflows. 
+Used GitHub Copilot & AI-assisted development to streamline development and minimize turnaround 
+time. 
+Provided production support & debugging, resolving client-critical issues and enhancing system 
+stability. 
+Key Achievements 
+20% faster first contentful paint (FCP) 
+Reduced API calls by ~25% via caching 
+Delivered 100% on-time sprint deliverables for 4+ enterprise modules 
+Tata Consultancy Services 
+Systems Engineer 
+AUG 2021 – APR 2024 
+Developed user dashboard & documentation management systems using React.js, JavaScript (ES6+), 
+and REST APIs. 
+Improved codebase quality by 30% through modular architecture, reusable components, and custom 
+hooks. 
+Participated in Agile/Scrum delivery lifecycle including grooming, sprints, demos, and UAT support. 
+Collaborated in CI/CD deployment processes; contributed to maintaining high code quality and 
+zero-downtime releases. 
+Utilized Git, Jira, and SonarQube for version control, task management, and code quality checks. 
+Key Achievements 
+98% defect-free releases across multiple sprints 
+ Drove migration to reusable UI components, reducing development cycles by 20% 
+SKILLS 
+Frontend - HTML, CSS, JavaScript, ReactJS, TypeScript, Bootstrap, Tailwind 
+Backend - Express.js, Node.js, React Query, Redux 
+Databases and Others - Mongo DB, MySQL, Git 
+PROJECTS 
+Enterprise Document Managment & Currency Portal  
+Document management portal to view and download shipping documents, invoices and metadata based on 
+tracking numbers and other details with currency conversion and tracking functionality. 
+Designed fast-rendering UI for shipping and finance document lifecycle: tracking, conversion, metadata 
+retrieval. 
+Implemented bulk download system handling 1000+ requests with caching + request batching. 
+CI/CD using Jenkins with testing in different test environments. 
+Achieved <2s page load time through route-level code-splitting and performance profiling. 
+Added role-based access control and secure session handling with industry best practices. 
+Built reusable hook-based components for improved maintainability and code size reduction. 
+Delivered 100% test coverage using Jest + RTL, ensuring stable and regression-free deployments. 
+Rides Tracker [LinkedIn post]  
+A user-friendly web platform enabling taxi drivers to monitor trip details, access in-depth analytics, and 
+effortlessly create professional invoices. 
+Detailed analytics based on 4+ metrics such as earnings, kms travelled, transactions, total trips, etc. 
+Downloadable PDF invoices and exportable reports to Excel sheets. 
+Made using ReactJS, Express.js, Node.js and Mongo DB. 
+CERTIFICATIONS 
+Microsoft Github Copilot - Intermediate 
+EDUCATION 
+FEB 2026 
+B.E. Computer Science 
+AUG 2017 – MAY 2021 
+Mumbai University - Vishwaniketan’s Institute of Management Entrepreneurship and Engineering Technology 

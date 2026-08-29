@@ -1,0 +1,25 @@
+BENJAMIN HARRIS
+benjamin.harris@example.com | LinkedIn | GitHub
+
+SUMMARY
+Data Scientist with 4 years of experience applying statistical modeling and experimentation to business problems.
+
+PROFESSIONAL EXPERIENCE
+Decision Science Co - Data Scientist - 2022 to Present
+Built customer segmentation and churn prediction models with Python and scikit-learn.
+Designed A/B tests and communicated confidence intervals to product leaders.
+Created visualizations and reports using pandas, NumPy, and Tableau.
+
+Market Research Group - Analyst - 2020 to 2022
+Analyzed survey data and developed forecasting models for retail clients.
+Automated recurring analytical reports with Python and SQL.
+
+SKILLS
+Python, SQL, Statistics, Machine Learning, scikit-learn, pandas, NumPy, Tableau, A/B Testing, Data Visualization
+
+PROJECTS
+Customer Churn Analysis
+Built an interpretable churn model and identified retention opportunities.
+
+EDUCATION
+M.S. Statistics, University of Wisconsin Madison, 2018 to 2020

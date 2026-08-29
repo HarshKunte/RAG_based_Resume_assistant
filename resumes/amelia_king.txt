@@ -1,0 +1,25 @@
+AMELIA KING
+amelia.king@example.com | LinkedIn | GitHub
+
+SUMMARY
+Database Administrator with 8 years of experience managing secure, high-availability data platforms.
+
+PROFESSIONAL EXPERIENCE
+DataTrust - Database Administrator - 2018 to Present
+Managed PostgreSQL, MySQL, and Oracle production databases.
+Designed backup, recovery, replication, and database monitoring strategies.
+Optimized SQL queries and schema design to reduce reporting times by 40 percent.
+
+Health Systems IT - Database Analyst - 2015 to 2018
+Created stored procedures, data quality reports, and migration scripts.
+Supported access controls and compliance audits for sensitive data.
+
+SKILLS
+PostgreSQL, MySQL, Oracle, SQL, Database Administration, Query Optimization, Replication, Backup and Recovery, Python, Linux
+
+PROJECTS
+Database Reliability Program
+Implemented automated backup validation and production capacity reporting.
+
+EDUCATION
+B.S. Information Technology, Rutgers University, 2011 to 2015

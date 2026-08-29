@@ -1,0 +1,25 @@
+OLIVIA BROWN
+olivia.brown@example.com | LinkedIn | GitHub
+
+SUMMARY
+Backend Engineer with 6 years of experience building reliable APIs and distributed services.
+
+PROFESSIONAL EXPERIENCE
+CloudScale Technologies - Senior Backend Engineer - 2022 to Present
+Designed Python and FastAPI services for high-volume payments workflows.
+Built asynchronous workers with Celery and Redis, reducing processing time by 35%.
+Managed PostgreSQL data models, database migrations, Docker deployments, and AWS infrastructure.
+
+River Labs - Backend Engineer - 2019 to 2022
+Developed REST APIs using Python, Django, and PostgreSQL.
+Created automated tests with Pytest and maintained CI/CD pipelines with GitHub Actions.
+
+SKILLS
+Python, FastAPI, Django, REST APIs, PostgreSQL, Redis, Celery, Docker, AWS, GitHub Actions, Pytest
+
+PROJECTS
+Payment Reconciliation Service
+Built an event-driven reconciliation platform with monitoring and retry handling.
+
+EDUCATION
+B.S. Computer Science, University of Washington, 2015 to 2019

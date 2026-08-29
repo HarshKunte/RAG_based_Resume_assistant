@@ -1,0 +1,24 @@
+DANIEL JACKSON
+ daniel.jackson@example.com | LinkedIn | GitHub
+
+SUMMARY
+Security Engineer with 7 years of experience protecting cloud applications and enterprise networks.
+
+PROFESSIONAL EXPERIENCE
+SecureNet - Cloud Security Engineer - 2020 to Present
+Implemented identity and access management controls across AWS accounts.
+Built threat detection workflows with Python, SIEM tools, and infrastructure scanning.
+Led vulnerability remediation and security reviews for containerized services.
+
+TrustPoint - Security Analyst - 2017 to 2020
+Investigated alerts, performed risk assessments, and maintained incident response playbooks.
+Supported penetration tests and secure software development training.
+
+SKILLS
+Cloud Security, AWS, IAM, Python, Kubernetes, Docker, SIEM, Threat Detection, Vulnerability Management, Incident Response, Linux
+
+CERTIFICATIONS
+Certified Cloud Security Professional
+
+EDUCATION
+B.S. Cybersecurity, Purdue University, 2013 to 2017

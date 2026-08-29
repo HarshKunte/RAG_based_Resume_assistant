@@ -1,0 +1,25 @@
+ELLA HALL
+ella.hall@example.com | LinkedIn | GitHub
+
+SUMMARY
+Frontend Engineer with 2 years of experience building responsive interfaces for education products.
+
+PROFESSIONAL EXPERIENCE
+LearnLoop - Frontend Engineer - 2024 to Present
+Developed React and JavaScript components with accessible HTML and CSS.
+Built interactive dashboards and integrated REST APIs with React Query.
+Improved mobile usability through responsive design and usability testing.
+
+StudyTech - Web Developer Intern - 2023 to 2024
+Maintained web pages and created reusable UI components.
+Added unit tests with Jest and participated in code reviews.
+
+SKILLS
+React, JavaScript, HTML, CSS, React Query, REST APIs, Jest, Accessibility, Responsive Design, Git
+
+PROJECTS
+Online Learning Dashboard
+Created progress charts, course search, and responsive student workflows.
+
+EDUCATION
+B.S. Human Computer Interaction, University of Minnesota, 2019 to 2023

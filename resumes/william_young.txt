@@ -1,0 +1,24 @@
+WILLIAM YOUNG
+william.young@example.com | LinkedIn | GitHub
+
+SUMMARY
+DevOps Engineer with 5 years of experience improving deployment automation and production operations.
+
+PROFESSIONAL EXPERIENCE
+ReleaseWorks - DevOps Engineer - 2021 to Present
+Built CI/CD pipelines with GitLab CI, Docker, and Kubernetes.
+Managed AWS infrastructure using Terraform and monitored services with Grafana.
+Automated operational tasks with Bash and Python scripts.
+
+OpsCore - Systems Engineer - 2019 to 2021
+Maintained Linux servers and supported application release processes.
+Created runbooks and participated in on-call incident response.
+
+SKILLS
+DevOps, CI/CD, GitLab CI, Docker, Kubernetes, AWS, Terraform, Linux, Bash, Python, Grafana, Monitoring
+
+CERTIFICATIONS
+Certified Kubernetes Application Developer
+
+EDUCATION
+B.S. Information Technology, Ohio State University, 2015 to 2019

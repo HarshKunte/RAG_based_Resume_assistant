@@ -1,0 +1,25 @@
+HENRY WALKER
+henry.walker@example.com | LinkedIn
+
+SUMMARY
+Engineering Manager with 10 years of experience leading software teams and delivering reliable products.
+
+PROFESSIONAL EXPERIENCE
+Atlas Software - Engineering Manager - 2020 to Present
+Led three cross-functional teams delivering web platforms with JavaScript, React, and Python.
+Established Agile planning, code review, hiring, mentoring, and engineering metrics.
+Partnered with product and design leaders to deliver quarterly roadmaps.
+
+Vector Systems - Senior Software Engineer - 2016 to 2020
+Built scalable services and coached engineers on testing and architecture.
+Owned release planning and production incident reviews.
+
+SKILLS
+Engineering Leadership, People Management, Agile, Scrum, React, JavaScript, Python, Software Architecture, Hiring, Mentoring, Roadmapping
+
+PROJECTS
+Engineering Delivery Program
+Introduced release metrics and planning practices that improved delivery predictability.
+
+EDUCATION
+B.S. Computer Science, University of Colorado Boulder, 2010 to 2014
