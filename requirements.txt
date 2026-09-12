@@ -11,3 +11,5 @@ langchain-huggingface
 rank_bm25
 pandas
 numpy
+langgraph
+streamlit

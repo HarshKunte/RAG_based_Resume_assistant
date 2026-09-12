@@ -22,6 +22,9 @@ The system is designed to help match job descriptions to relevant resumes and ex
 - `evaluation_data/` – evaluation inputs and relevance labels
 - `resumes/` – candidate resume files
 - `chroma_langchain_db/` – persisted Chroma database
+- `matching_agent.py` – LangGraph workflow and conversational CLI
+- `state_machine.mmd` – visual workflow diagram
+- `test_matching_agent.py` – five mocked conversation-flow tests
 
 ## Requirements
 
@@ -90,6 +93,31 @@ This script executes a sample job match query and prints top candidates and scor
 python evaluation.py
 ```
 
+### Run the conversational agent
+
+```bash
+python matching_agent.py
+```
+
+### Run the Streamlit interface
+
+```bash
+streamlit run streamlit_app.py
+```
+
+The Streamlit app provides a chat-based search experience, a live job brief, ranked evidence cards, candidate comparison, LLM-generated interview questions, and the three screening-round results. Keep `OPENAI_API_KEY` in `.env` before running a real search.
+
+The agent starts with a decision node. A new search follows `Parse JD -> Extract Requirements -> Search Resumes -> Rank Candidates -> Generate Report`, while comparison, interview-question, ranking-explanation, and report requests reuse the existing shortlist and can go directly to `Generate Report`. All paths finish at the `Human Feedback Loop -> END`.
+It supports candidate search, top-N comparison, ranking explanations, screening questions, and iterative requirement refinement. The rank stage stores initial top-10 results, deep analysis for the top three, and final hire/no-hire recommendations in `screening_rounds`.
+
+Run the five conversation-flow tests without calling an external LLM:
+
+```bash
+python -m unittest test_matching_agent.py
+```
+
+The diagram is in [state_machine.mmd](state_machine.mmd). The agent uses the existing hybrid RAG/BM25 retrieval in `job_matcher.py`; set `OPENAI_API_KEY` in `.env` before running a real retrieval query.
+
 This runs the evaluation workflow and prints metrics like recall, precision, MRR, and NDCG.
 
 ## Example usage
@@ -108,9 +136,3 @@ print(result)
 - The first run may take some time because embeddings and model initialization can be heavy.
 - The project depends on downloaded models from Hugging Face and may require internet access.
 - If the Chroma database already exists, the script will reuse it instead of recreating it.
-
-## Troubleshooting
-
-- If you get a missing API key error, make sure `.env` exists and `OPENAI_API_KEY` is set correctly.
-- If a model download fails, ensure your internet connection is working and the Python environment is activated.
-- If Chroma errors appear, remove the `chroma_langchain_db/` folder and rerun `python resume_rag.py`.
