@@ -56,6 +56,38 @@ class MatchingAgentConversationTests(unittest.TestCase):
         result = self.ask("Compare the top 3 matches side by side")
         self.assertIn("Candidate | Score", result["report"])
 
+    def test_compare_single_word_candidate_names(self):
+        single_name_candidates = [
+            {
+                "candidate_id": "harsh",
+                "candidate_name": "Harsh",
+                "match_score": 92,
+                "matched_skills": ["React"],
+                "qualified": True,
+                "reasoning": "Strong React evidence.",
+                "relevant_excerpts": ["Built React applications for five years."],
+            },
+            {
+                "candidate_id": "grace",
+                "candidate_name": "Grace",
+                "match_score": 88,
+                "matched_skills": ["React"],
+                "qualified": True,
+                "reasoning": "Solid React experience.",
+                "relevant_excerpts": ["Delivered React interfaces."],
+            },
+        ]
+        state = {
+            "query": "Compare Harsh and Grace",
+            "conversation_history": [],
+            "job_requirement_understanding": {"must_have": ["React"]},
+            "shortlisted_candidates": single_name_candidates,
+            "previous_shortlist": [],
+        }
+        result = self.ask("Compare Harsh and Grace", state)
+        self.assertIn("Candidate | Score", result["report"])
+        self.assertIn("Harsh", result["report"])
+
     def test_decision_node_uses_existing_shortlist(self):
         self.assertEqual(
             decide_action({"query": "Compare the top 2", "shortlisted_candidates": CANDIDATES})[

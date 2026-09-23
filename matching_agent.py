@@ -13,6 +13,7 @@ import dotenv
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
+from mcp_client import MCPFilesystemClient
 
 
 class State(TypedDict, total=False):
@@ -187,12 +188,14 @@ def rag_search(query: str, top_k: int = 10) -> list[dict[str, Any]]:
 
 
 def get_agent_tools() -> dict[str, Any]:
-    """Return the filesystem, RAG, and specialist tools available to the agent."""
-    from fs_tools import list_files, read_file
+    """Return MCP filesystem, RAG, and specialist tools available to the agent."""
+    filesystem = MCPFilesystemClient()
 
     return {
-        "list_files": list_files,
-        "read_file": read_file,
+        "list_files": filesystem.list_files,
+        "read_file": filesystem.read_file,
+        "watch_directory": filesystem.watch_directory,
+        "batch_process": filesystem.batch_process,
         "rag_search": rag_search,
         "extract_requirements": extract_requirements,
         "compare_candidates": compare_candidates,
@@ -341,9 +344,18 @@ def generate_report(state: State) -> dict[str, Any]:
                 candidates,
             )
         elif any(sub.lower() in query.lower() for sub in split_candidate_names):
-            # print(f"Line 331: Found matching candidate names in query")
-            ids = [candidate.get("candidate_id", candidate.get("candidate_name", "")) for candidate in candidates if candidate.get("candidate_name", "").split()[0].lower() in query.lower() or candidate.get("candidate_name", "").split()[1].lower() in query.lower()]
-            report = compare_candidates(ids, candidates)
+            query_lower = query.lower()
+            ids = []
+            for candidate in candidates:
+                name = str(candidate.get("candidate_name", "")).strip()
+                parts = name.split()
+                if not parts:
+                    continue
+                if any(part.lower() in query_lower for part in parts):
+                    ids.append(candidate.get("candidate_id", name))
+            if not ids:
+                ids = re.findall(r"[A-Za-z][A-Za-z -]+", query)
+            report = compare_candidates(ids[-3:] if ids else [], candidates)
         else:
             # print(f"Line 332: No matching candidate names found in query, extracting IDs")
             ids = re.findall(r"[A-Za-z][A-Za-z -]+", query)

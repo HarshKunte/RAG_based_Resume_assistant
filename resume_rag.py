@@ -6,12 +6,12 @@ from uuid import uuid4
 import chromadb
 import dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
-from fs_tools import list_files, read_file
 from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
+from mcp_client import MCPFilesystemClient
 
 dotenv.load_dotenv()
 API_KEY = os.getenv("OPENAI_API_KEY")
@@ -48,11 +48,13 @@ def get_vector_db():
         collection = persistent_client.get_collection(name=collection_name)
         # print(f"Collection '{collection_name}' exists. Loading...")
         
-        return Chroma(
+        vector_store = Chroma(
             client=persistent_client,
             collection_name=collection_name,
             embedding_function=embeddings
         )
+        index_new_resumes(vector_store)
+        return vector_store
     except (ValueError, Exception):
         return read_file_data_and_create_vector_db()
     
@@ -89,28 +91,82 @@ def split_resume_sections(text: str) -> list[tuple[str, str]]:
 
     return sections
 
-def read_file_data_and_create_vector_db():
+def _resume_paths(directory: str, client: MCPFilesystemClient) -> list[str]:
+    paths = []
+    for extension in (".pdf", ".docx", ".txt"):
+        paths.extend(
+            item["filepath"]
+            for item in client.list_files(directory, extension)
+            if "filepath" in item
+        )
+    return paths
+
+
+def _indexed_resume_paths(vector_store, directory: str) -> set[str]:
+    collection = getattr(vector_store, "_collection", None)
+    if collection is None:
+        return set()
+    metadata_rows = collection.get(include=["metadatas"]).get("metadatas", [])
+    return {
+        str(Path(directory, metadata["source"]).resolve())
+        for metadata in metadata_rows
+        if metadata and metadata.get("source")
+    }
+
+
+def index_new_resumes(
+    vector_store,
+    directory: str = "resumes",
+    client: MCPFilesystemClient | None = None,
+) -> int:
+    """Index resume files discovered through MCP but absent from Chroma."""
+    owns_client = client is None
+    client = client or MCPFilesystemClient(root_directory=directory)
+    try:
+        all_paths = _resume_paths(directory, client)
+        known_paths = _indexed_resume_paths(vector_store, directory)
+        discovered = client.watch_directory(
+            directory,
+            known_files=list(known_paths),
+        )
+        new_paths = {
+            str(Path(item["filepath"]).resolve())
+            for item in discovered
+            if "filepath" in item
+        }
+        documents = client.batch_process(
+            [path for path in all_paths if str(Path(path).resolve()) in new_paths]
+        )
+        indexed = 0
+        for document in documents:
+            if document.get("success"):
+                create_vector_database_from_documents(document, vector_store)
+                indexed += 1
+        return indexed
+    finally:
+        if owns_client:
+            client.close()
+
+
+def read_file_data_and_create_vector_db(
+    directory: str = "resumes",
+    client: MCPFilesystemClient | None = None,
+):
     vector_store = Chroma(
                     collection_name=collection_name,
                     embedding_function=embeddings,
                     persist_directory= persist_directory,
     )
-    # Step 1: List files in the "resumes" directory with .pdf, .docx, and .txt extensions
-    directory = "resumes"
-    extensions = [".pdf", ".docx", ".txt"]
-    all_files = []
-    for ext in extensions:
-        files = list_files(directory, ext)
-        if "error" not in files[0]:
-            all_files.extend(files)
-
-    for file_info in all_files:
-        documents = read_file(file_info["filepath"])
-        # print(documents)
-
-        # Step 3: Create a vector database from the documents
-        # (This is a placeholder; implement your vector database creation logic here)
-        create_vector_database_from_documents(documents, vector_store)
+    owns_client = client is None
+    client = client or MCPFilesystemClient(root_directory=directory)
+    try:
+        paths = _resume_paths(directory, client)
+        for document in client.batch_process(paths):
+            if document.get("success"):
+                create_vector_database_from_documents(document, vector_store)
+    finally:
+        if owns_client:
+            client.close()
     return vector_store
 
 def create_vector_database_from_documents(documents, vector_store):

@@ -95,19 +95,20 @@ st.markdown(
     [data-testid="stAppViewContainer"] textarea,
     [data-baseweb="textarea"] textarea,
     textarea[placeholder] {
-        color: var(--ink) !important;
-        -webkit-text-fill-color: var(--ink) !important;
-        background: transparent !important;
+        color: #0f1720 !important;
+        -webkit-text-fill-color: #0f1720 !important;
+        background: rgba(255,255,255,.96) !important;
+        opacity: 1 !important;
     }
     [data-testid="stChatInput"] textarea::placeholder,
     [data-testid="stChatInputContainer"] textarea::placeholder {
-        color: #697771 !important;
-        opacity: 1;
+        color: #42514d !important;
+        opacity: 1 !important;
     }
     [data-baseweb="textarea"] textarea::placeholder,
     textarea[placeholder]::placeholder {
-        color: #697771 !important;
-        -webkit-text-fill-color: #697771 !important;
+        color: #42514d !important;
+        -webkit-text-fill-color: #42514d !important;
         opacity: 1 !important;
     }
     [data-testid="stChatInput"] button { color: var(--green) !important; }

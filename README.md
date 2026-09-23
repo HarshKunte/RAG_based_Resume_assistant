@@ -23,8 +23,10 @@ The system is designed to help match job descriptions to relevant resumes and ex
 - `resumes/` – candidate resume files
 - `chroma_langchain_db/` – persisted Chroma database
 - `matching_agent.py` – LangGraph workflow and conversational CLI
-- `state_machine.mmd` – visual workflow diagram
-- `test_matching_agent.py` – five mocked conversation-flow tests
+- `filesystem_mcp_server.py` – FastMCP filesystem server for resume discovery and reading
+- `state_machine.mmd` – agent to MCP workflow diagram
+- `test_matching_agent.py` – mocked conversation-flow tests
+- `test_filesystem_mcp_server.py` – MCP discovery, batch, watch, and client tests
 
 ## Requirements
 
@@ -99,6 +101,26 @@ python evaluation.py
 python matching_agent.py
 ```
 
+### Run the MCP filesystem server
+
+The filesystem server is now implemented with FastMCP and communicates over the
+standard MCP stdio transport. The agent launches it automatically through the
+Python MCP client, and it can also be run directly:
+
+```powershell
+$env:MCP_FILESYSTEM_ROOT = "resumes"
+python filesystem_mcp_server.py
+```
+
+It exposes `list_files`, `read_file`, `watch_directory`, and `batch_process` as
+MCP tools. The Python client uses the official `mcp.client.stdio` session to
+connect to the server, initialize the session, and call tools using the standard
+MCP API.
+
+The `MCP_FILESYSTEM_ROOT` environment variable sets the default directory that the
+server resolves against; the client defaults to the repository's `resumes/`
+directory when no explicit root is provided.
+
 ### Run the Streamlit interface
 
 ```bash
@@ -110,15 +132,37 @@ The Streamlit app provides a chat-based search experience, a live job brief, ran
 The agent starts with a decision node. A new search follows `Parse JD -> Extract Requirements -> Search Resumes -> Rank Candidates -> Generate Report`, while comparison, interview-question, ranking-explanation, and report requests reuse the existing shortlist and can go directly to `Generate Report`. All paths finish at the `Human Feedback Loop -> END`.
 It supports candidate search, top-N comparison, ranking explanations, screening questions, and iterative requirement refinement. The rank stage stores initial top-10 results, deep analysis for the top three, and final hire/no-hire recommendations in `screening_rounds`.
 
-Run the five conversation-flow tests without calling an external LLM:
+Run the agent and MCP tests without calling an external LLM:
 
 ```bash
-python -m unittest test_matching_agent.py
+python -m unittest test_matching_agent.py test_filesystem_mcp_server.py
 ```
 
-The diagram is in [state_machine.mmd](state_machine.mmd). The agent uses the existing hybrid RAG/BM25 retrieval in `job_matcher.py`; set `OPENAI_API_KEY` in `.env` before running a real retrieval query.
+The diagram is in [state_machine.mmd](state_machine.mmd). For a 5-6 minute
+demo, show `tools/list`, call `batch_process` and `resources/read`, run the
+agent's end-to-end search, then add a resume and call `watch_directory` with
+the previous file paths as `known_files`. The agent uses the existing hybrid
+RAG/BM25 retrieval in `job_matcher.py`; set `OPENAI_API_KEY` in `.env` before
+running a real retrieval query.
+
+When `resume_rag.get_vector_db()` opens an existing Chroma collection, it calls
+`index_new_resumes()`. That function compares MCP-discovered files against the
+indexed `source` metadata, sends only new paths to `batch_process()`, and adds
+the extracted documents to Chroma. A new database build also uses one MCP
+batch operation instead of reading files one by one.
 
 This runs the evaluation workflow and prints metrics like recall, precision, MRR, and NDCG.
+
+## FastMCP architecture notes
+
+The project now follows the FastMCP pattern:
+
+- the server is built with `FastMCP(...)`
+- each tool is registered with `@server.tool(name="...")`
+- the client uses `stdio_client(...)` + `ClientSession(...)`
+- path-based resource discovery remains compatible with the existing resume workflow
+
+This keeps the project aligned with the official MCP Python ecosystem while preserving the application-specific resume tooling and the existing agent integrations.
 
 ## Example usage
 

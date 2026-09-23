@@ -1,0 +1,19 @@
+flowchart LR
+    User[User query] --> Agent[LangGraph matching agent]
+    Agent --> Decide[Decide action]
+    Decide --> Parse[Parse job description]
+    Parse --> Match[Extract requirements and rank]
+    Match --> Report[Generate report]
+    Decide --> Report
+    Agent --> Client[MCP filesystem client]
+    Client --> Init[initialize JSON-RPC session]
+    Init --> Discovery[tools/list or resources/list]
+    Discovery --> Call[tools/call or resources/read]
+    Call --> Server[filesystem_mcp_server.py]
+    Server --> Files[(Resume files)]
+    Files --> Server
+    Server --> Call
+    Call --> Client
+    Client --> Agent
+    Report --> Feedback[Human feedback and next query]
+    Feedback --> Agent
