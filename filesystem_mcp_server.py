@@ -44,13 +44,17 @@ def watch_directory(
     extension: str | None = None,
 ) -> list[dict[str, Any]]:
     """Return files that appear during the optional polling window."""
-    known = set(known_files or [])
+    known = {os.path.abspath(path) for path in (known_files or [])}
     deadline = time.monotonic() + max(0, timeout)
     while True:
         current = list_files(directory, extension)
         if current and "error" in current[0]:
             return current
-        new_files = [item for item in current if item.get("filepath") not in known]
+        new_files = [
+            item
+            for item in current
+            if os.path.abspath(item.get("filepath", "")) not in known
+        ]
         if new_files or timeout <= 0 or time.monotonic() >= deadline:
             return new_files
         time.sleep(max(0.01, poll_interval))

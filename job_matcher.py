@@ -98,12 +98,19 @@ def _normalise(values):
 
 
 def extract_job_requirements(query: str) -> dict:
-    skills = extract_requirements_from_job_description(query)
+    print(f"[DEBUG] extract_job_requirements: query='{query}'")
+    try:
+        skills = extract_requirements_from_job_description(query)
+    except Exception as exc:
+        print(f"[DEBUG] extract_job_requirements: exception={exc}")
+        skills = {"must_have": [], "nice_to_have": []}
     years_match = re.search(r"(\d+(?:\.\d+)?)\+?\s+years?", query.lower())
-    return {
+    result = {
         "skills": skills,
         "minimum_experience_years": float(years_match.group(1)) if years_match else None,
     }
+    print(f"[DEBUG] extract_job_requirements: result={result}")
+    return result
 
 
 def _metadata_value(metadata, key, default=""):
@@ -256,6 +263,7 @@ def retrieve_candidates(
     explain: bool = True,
 ):
     started = time.perf_counter()
+    print(f"[DEBUG] retrieve_candidates: starting query='{query}', top_k={top_k}")
     stored = get_vector_db().get(include=["documents", "metadatas"])
     documents = stored.get("documents", [])
     metadatas = stored.get("metadatas", [])

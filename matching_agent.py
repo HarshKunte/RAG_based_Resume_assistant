@@ -127,7 +127,9 @@ def route_after_decision(state: State) -> str:
 
 def parse_jd(state: State) -> dict[str, Any]:
     query = state.get("query", "").strip()
+    print(f"[DEBUG] parse_jd: starting for query='{query}'")
     job_description = _extract_job_description_with_llm(query)
+    print(f"[DEBUG] parse_jd: extracted job_description='{job_description[:120]}...'")
     return {
         "job_requirement_understanding": {
             **state.get("job_requirement_understanding", {}),
@@ -156,9 +158,11 @@ def extract_requirements(jd: str) -> dict[str, Any]:
 
 
 def extract_requirements_node(state: State) -> dict[str, Any]:
-    requirements = extract_requirements(
-        state["job_requirement_understanding"]["job_description"]
-    )
+    print("[DEBUG] extract_requirements_node: beginning requirement extraction")
+    jd = state["job_requirement_understanding"].get("job_description", "")
+    print(f"[DEBUG] extract_requirements_node: jd_length={len(jd)}")
+    requirements = extract_requirements(jd)
+    print(f"[DEBUG] extract_requirements_node: requirements={requirements}")
     return {"job_requirement_understanding": {
         **state.get("job_requirement_understanding", {}),
         **requirements,
@@ -169,12 +173,14 @@ def search_resumes(state: State) -> dict[str, Any]:
     _, retrieve_candidates = _matcher()
     requirements = state["job_requirement_understanding"]
     query = requirements["job_description"]
+    print(f"[DEBUG] search_resumes: searching for query='{query}'")
     try:
         search_result = retrieve_candidates(query, top_k=10, explain=False)
     except TypeError:
-        # Keep compatibility with simple mocked or older matcher functions.
+        print("[DEBUG] search_resumes: falling back to legacy retrieve_candidates signature")
         search_result = retrieve_candidates(query, top_k=10)
     matches = search_result.get("top_matches", [])
+    print(f"[DEBUG] search_resumes: matched_count={len(matches)}")
     return {
         "previous_shortlist": state.get("shortlisted_candidates", []),
         "shortlisted_candidates": matches,
@@ -332,6 +338,7 @@ def generate_report(state: State) -> dict[str, Any]:
     candidates = state.get("shortlisted_candidates", [])
     action = state.get("action", "search")
     query = state.get("query", "")
+    print(f"[DEBUG] generate_report: action={action}, candidate_count={len(candidates)}, query='{query}'")
     candidate_names = [candidate.get("candidate_name", candidate.get("candidate_id", "")) for candidate in candidates]
     split_candidate_names = [part for name in candidate_names for part in name.split()]
     if action == "compare":

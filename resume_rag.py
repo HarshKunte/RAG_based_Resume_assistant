@@ -43,19 +43,20 @@ persistent_client = chromadb.PersistentClient(path=persist_directory)
 collection_name = "my_documents"
 
 def get_vector_db():
+    print("[DEBUG] get_vector_db: attempting to load or refresh Chroma collection")
     try:
-        # Attempt to grab the collection directly
         collection = persistent_client.get_collection(name=collection_name)
-        # print(f"Collection '{collection_name}' exists. Loading...")
-        
+        print(f"[DEBUG] get_vector_db: collection found: {collection_name}")
         vector_store = Chroma(
             client=persistent_client,
             collection_name=collection_name,
             embedding_function=embeddings
         )
+        print("[DEBUG] get_vector_db: calling index_new_resumes")
         index_new_resumes(vector_store)
         return vector_store
-    except (ValueError, Exception):
+    except (ValueError, Exception) as exc:
+        print(f"[DEBUG] get_vector_db: collection load failed, rebuilding DB: {exc}")
         return read_file_data_and_create_vector_db()
     
 
@@ -172,7 +173,23 @@ def read_file_data_and_create_vector_db(
 def create_vector_database_from_documents(documents, vector_store):
 
     file_name = documents["filename"]
-    resume_text = "\n".join(page.page_content for page in documents["content"])
+    print(f"[DEBUG] create_vector_database_from_documents: indexing {file_name}")
+    raw_pages = documents.get("content", []) or []
+    pages = []
+    for page in raw_pages:
+        if hasattr(page, "page_content"):
+            pages.append(page)
+        elif isinstance(page, dict):
+            page_content = page.get("page_content") or page.get("text") or ""
+            metadata = page.get("metadata") or {}
+            pages.append(type("PageLike", (), {"page_content": page_content, "metadata": metadata})())
+
+    if not pages:
+        print(f"[DEBUG] create_vector_database_from_documents: no pages for {file_name}")
+        return
+
+    resume_text = "\n".join(getattr(page, "page_content", "") for page in pages)
+    print(f"[DEBUG] create_vector_database_from_documents: resume_text_length={len(resume_text)}")
     resume_metadata = extract_resume_metadata(resume_text, file_name)
     db_documents = []
 
@@ -182,8 +199,8 @@ def create_vector_database_from_documents(documents, vector_store):
         separators=["\n\n", "\n", ". ", " ", ""],
     )
 
-    for page in documents["content"]:
-        sections = split_resume_sections(page.page_content)
+    for page in pages:
+        sections = split_resume_sections(getattr(page, "page_content", ""))
 
         for section_name, section_text in sections:
             chunks = splitter.create_documents([section_text])
@@ -206,8 +223,12 @@ def create_vector_database_from_documents(documents, vector_store):
 
                 db_documents.append(chunk)
 
+    if not db_documents:
+        print(f"[DEBUG] create_vector_database_from_documents: no chunks created for {file_name}")
+        return
+
     uuids = [str(uuid4()) for _ in db_documents]
-    
+    print(f"[DEBUG] create_vector_database_from_documents: adding {len(db_documents)} chunks")
     vector_store.add_documents(documents=db_documents, ids=uuids)
     # print(f"Added {len(db_documents)} chunks for {file_name}")
 
@@ -219,27 +240,43 @@ def extract_keywords_from_documents(document):
             description="5-10 specific keywords, tech terms, or entities found in the text."
         )
 
-    llm = ChatOpenAI(
-        model="openai/gpt-4o-mini",
-        temperature=0,
-        timeout=30,
-        openai_api_key=API_KEY,
-        base_url="https://openrouter.ai/api/v1",
-    )
-    structured_llm = llm.with_structured_output(DocumentMetadata)
+    text = getattr(document, "page_content", "") or ""
+    try:
+        llm = ChatOpenAI(
+            model="openai/gpt-4o-mini",
+            temperature=0,
+            timeout=30,
+            openai_api_key=API_KEY,
+            base_url="https://openrouter.ai/api/v1",
+        )
+        structured_llm = llm.with_structured_output(DocumentMetadata)
 
-    prompt = ChatPromptTemplate.from_messages([
-        (
-            "system",
-            "You are an expert at resume analytics and keywords extraction system. "
-            "Extract all relevant skills and keywords from the text generically. "
-            "Do not limit extraction to a predefined vocabulary. "
-        ),
-        ("user", "{text}"),
-    ])
+        prompt = ChatPromptTemplate.from_messages([
+            (
+                "system",
+                "You are an expert at resume analytics and keywords extraction system. "
+                "Extract all relevant skills and keywords from the text generically. "
+                "Do not limit extraction to a predefined vocabulary. "
+            ),
+            ("user", "{text}"),
+        ])
 
-    extraction = (prompt | structured_llm).invoke({"text": document.page_content})
-    return extraction.keywords
+        extraction = (prompt | structured_llm).invoke({"text": text})
+        return extraction.keywords
+    except Exception:
+        # Fall back to a lightweight regex-based keyword list when the LLM API is
+        # unavailable or the OpenRouter account has no remaining credits.
+        matches = re.findall(r"[A-Za-z][A-Za-z0-9+/.#-]{2,}", text)
+        seen = set()
+        keywords = []
+        for match in matches:
+            candidate = match.strip()
+            if len(candidate) < 3 or candidate.lower() in {"the", "and", "with", "that", "this", "from", "have", "been", "into"}:
+                continue
+            if candidate.lower() not in seen:
+                seen.add(candidate.lower())
+                keywords.append(candidate)
+        return keywords[:10]
 
 
 def extract_requirements_from_job_description(job_description):
@@ -251,35 +288,36 @@ def extract_requirements_from_job_description(job_description):
             description="List of nice to have skills, tech terms, or entities found in the text."
         )
 
-    llm = ChatOpenAI(
-        model="openai/gpt-4o-mini",
-        temperature=0,
-        timeout=30,
-        openai_api_key=API_KEY,
-        base_url="https://openrouter.ai/api/v1",
-    )
-    structured_llm = llm.with_structured_output(DocumentMetadata)
+    try:
+        llm = ChatOpenAI(
+            model="openai/gpt-4o-mini",
+            temperature=0,
+            timeout=30,
+            openai_api_key=API_KEY,
+            base_url="https://openrouter.ai/api/v1",
+        )
+        structured_llm = llm.with_structured_output(DocumentMetadata)
 
-    prompt = ChatPromptTemplate.from_messages([
-        (
-            "system",
-            "You are an expert at analyzing the skills required for a job and extracting them from the given job description."
-            "Extract only technical and other relevant skills, divide them into must have and nice to have skills. Split skills by spaces also if required"
-            "Do not limit extraction to a predefined vocabulary. "
-            "Use only skills explicitly stated in the supplied job description. "
-            "Never infer, add, or hallucinate a skill that is not present in the text. "
-            "Give all upper, lower and other versions of the same skill as separate entries."
-        ),
-        ("user", "{text}"),
-    ])
+        prompt = ChatPromptTemplate.from_messages([
+            (
+                "system",
+                "You are an expert at analyzing the skills required for a job and extracting them from the given job description."
+                "Extract only technical and other relevant skills, divide them into must have and nice to have skills. Split skills by spaces also if required"
+                "Do not limit extraction to a predefined vocabulary. "
+                "Use only skills explicitly stated in the supplied job description. "
+                "Never infer, add, or hallucinate a skill that is not present in the text. "
+                "Give all upper, lower and other versions of the same skill as separate entries."
+            ),
+            ("user", "{text}"),
+        ])
 
-    extraction = (prompt | structured_llm).invoke({"text": job_description})
-    # print(f"Extracted must have skills: {extraction.must_have_skills}")
-    # print(f"Extracted nice to have skills: {extraction.nice_to_have_skills}")
-    return {
-        "must_have":extraction.must_have_skills,
-        "nice_to_have":extraction.nice_to_have_skills
-    }
+        extraction = (prompt | structured_llm).invoke({"text": job_description})
+        return {
+            "must_have": extraction.must_have_skills,
+            "nice_to_have": extraction.nice_to_have_skills,
+        }
+    except Exception:
+        return {"must_have": [], "nice_to_have": []}
 
 
 def extract_resume_metadata(text: str, filename: str) -> dict:

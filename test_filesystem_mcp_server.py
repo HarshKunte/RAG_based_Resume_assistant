@@ -37,6 +37,13 @@ class FilesystemMCPTests(unittest.TestCase):
             {str(self.second)},
         )
 
+    def test_watch_normalises_known_paths(self):
+        discovered = watch_directory(str(self.root), [str(self.first.resolve())])
+        self.assertEqual(
+            {item["filepath"] for item in discovered},
+            {str(self.second)},
+        )
+
     def test_client_uses_mcp_transport(self):
         client = MCPFilesystemClient(root_directory=str(self.root))
         try:
